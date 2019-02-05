@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "id": "@shopgate/ext-terms-and-conditions",
+  "components": [
+    {
+      "id": "TermsAndConditions",
+      "path": "frontend/portals/PaymentBarBefore",
+      "target": "cart.item-list.after",
+      "type": "portals"
+    },
+    {
+      "id": "CheckoutButton",
+      "path": "frontend/portals/CheckoutButton",
+      "target": "cart.checkout-button",
+      "type": "portals"
+    },
+    {
+      "id": "isOrderableByTerms",
+      "path": "frontend/reducers/index.js",
+      "type": "reducers"
+    }
+  ],
+  "configuration": {
+    "checkBoxValues": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": ["Value 1", "Value 2", "Value 3"],
+      "params": {
+        "required": false,
+        "type": "json",
+        "label": "Terms and Conditions to Apply"
+      }
+    },
+    "textColor": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": "#000",
+      "params": {
+        "required": false,
+        "type": "string",
+        "label": "Text Color"
+      }
+    }
+  }
+}
