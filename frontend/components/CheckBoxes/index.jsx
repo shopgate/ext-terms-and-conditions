@@ -59,13 +59,14 @@ class CheckBoxes extends Component {
    */
   render() {
     let checkBoxes = null;
-    checkBoxes = this.props.config.checkBoxValues.map((terms, index) => (
+    checkBoxes = this.props.config.checkBoxValues.map((value, index) => (
       <CheckBox
         key={index.toString()}
         value={index}
-        label={terms}
+        label={value.text}
         checked={this.state.values[index].checked}
         onChange={this.handleClick}
+        textColor={value.textColor}
       />
     ));
     return (

@@ -1,8 +1,16 @@
 {
   "checkBoxValues": [
-    "Value 1",
-    "Value 2",
-    "Value 3"
-  ],
-  "textColor": "#000"
+    {
+      "text": "Value 1",
+      "textColor": "#000"
+    },
+    {
+      "text": "Value 2",
+      "textColor": "#656565"
+    },
+    {
+      "text": "Value 3",
+      "textColor": "#000"
+    }
+  ]
 }

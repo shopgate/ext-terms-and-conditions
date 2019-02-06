@@ -1,7 +1,4 @@
 import { css } from 'glamor';
-import getConfig from '../../../../helpers/getConfig';
-
-const config = getConfig();
 
 const wrapper = css({
   paddingTop: '5px',
@@ -9,7 +6,6 @@ const wrapper = css({
 
 const label = css({
   display: 'inline-block',
-  color: `${config.textColor}`,
   fontFamily: 'inherit',
   fontSize: '16px',
   lineHeight: '160%',

@@ -10,7 +10,7 @@ import styles from './style';
  */
 const CheckBox = props => (
   <div className={styles.wrapper}>
-    <label onClick={() => props.onChange(props.value)} className={styles.label}>
+    <label onClick={() => props.onChange(props.value)} className={styles.label} style={{ color: `${props.textColor}` }}>
       <SharedCheckbox
         className={styles.box}
         type="checkbox"
@@ -24,6 +24,7 @@ const CheckBox = props => (
 
 CheckBox.propTypes = {
   label: PropTypes.string.isRequired,
+  textColor: PropTypes.string.isRequired,
   value: PropTypes.number.isRequired,
   checked: PropTypes.bool,
   onChange: PropTypes.func,
