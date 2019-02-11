@@ -58,8 +58,7 @@ class CheckBoxes extends Component {
    * @returns {JSX}
    */
   render() {
-    let checkBoxes = null;
-    checkBoxes = this.props.config.checkBoxValues.map((value, index) => (
+    const checkBoxes = this.props.config.checkBoxValues.map((value, index) => (
       <CheckBox
         key={index.toString()}
         value={index}

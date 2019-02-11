@@ -1,18 +1,15 @@
 import { css } from 'glamor';
 import { themeConfig } from '@shopgate/pwa-common/helpers/config';
 
-const { colors } = themeConfig;
+const { colors, variables } = themeConfig;
 
 const wrapper = css({
   background: colors.shade8,
 }).toString();
 
 const content = css({
-  paddingTop: '15px',
-  width: '80%',
+  padding: `15px ${variables.gap.big}px 0px ${variables.gap.big}px`,
   display: 'block',
-  marginLeft: 'auto',
-  marginRight: 'auto',
 }).toString();
 
 export default {

@@ -18,6 +18,11 @@
       "id": "isOrderableByTerms",
       "path": "frontend/reducers/index.js",
       "type": "reducers"
+    },
+    {
+      "type": "translations",
+      "path": "frontend/locale/en-US.json",
+      "id": "locale/en-US"
     }
   ],
   "configuration": {
@@ -42,6 +47,16 @@
         "required": false,
         "type": "json",
         "label": "Terms and Conditions to Apply"
+      }
+    },
+    "termsDialog": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": "You must agree with all terms and conditions of sale to check out.",
+      "params": {
+        "required": false,
+        "type": "string",
+        "label": "Terms and Conditions dialog notice"
       }
     }
   }

@@ -18,7 +18,7 @@ Set the following values in your Shopgate Connect Admin:
 * checkBoxValues - (array of Objects) used to hold your terms and conditions values.
     * text - (string) text for terms and conditions checkbox.
     * textColor - (string) hex value for text color of terms and conditions text.
-
+* termsDialog - (string) text for modal dialog.
 ### Useful Additional Values
 There are additional values that can be adjusted via the Shopgate Color Config in Guru. Ask support agent to update.
 

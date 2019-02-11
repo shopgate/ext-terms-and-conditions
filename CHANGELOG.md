@@ -9,7 +9,8 @@ First version of the extension.
 - You can configure an array of objects in the Shopgate Connect admin to display your desired text. Example config:
 ```json
 {
-  "text": "Value 1", // Text to display
-  "textColor": "#000" // Hex value for text color
+  "text": "Value 1",
+  "textColor": "#000"
 },
 ```
+- You can configure the dialog notice text for the modal that alerts a customer to confirm terms and conditions. Input type is string.
