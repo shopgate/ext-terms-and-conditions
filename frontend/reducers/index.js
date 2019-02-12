@@ -5,7 +5,7 @@ import { UPDATE_CHECKOUT_IS_ORDERABLE } from '../constants';
  * @param {Object} action action
  * @returns {Object}
  */
-const isOrderableByTerms = (state = { isOrderable: false }, action) => {
+const isOrderableByTerms = (state = { isOrderable: true }, action) => {
   switch (action.type) {
     case UPDATE_CHECKOUT_IS_ORDERABLE:
       return {
