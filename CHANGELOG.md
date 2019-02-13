@@ -14,3 +14,5 @@ First version of the extension.
 },
 ```
 - You can configure the dialog notice text for the modal that alerts a customer to confirm terms and conditions. Input type is string.
+
+[1.0.0]: https://github.com/shopgate/ext-upselling/compare/v0.0.1...v1.0.0
