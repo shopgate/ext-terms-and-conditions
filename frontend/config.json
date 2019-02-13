@@ -1,17 +1,4 @@
 {
-  "checkBoxValues": [
-    {
-      "text": "Value 1",
-      "textColor": "#000"
-    },
-    {
-      "text": "Value 2",
-      "textColor": "#656565"
-    },
-    {
-      "text": "Value 3",
-      "textColor": "#000"
-    }
-  ],
+  "checkBoxValues": [],
   "termsDialog": "You must agree with all terms and conditions of sale to check out."
 }

@@ -20,6 +20,8 @@ Set the following values in your Shopgate Connect Admin:
     * textColor - (string) hex value for text color of terms and conditions text.
 * termsDialog - (string) text for modal dialog.
 
+If the value checkBoxValues is left empty, checkout will be allowed and no checkboxes will be rendered.
+ 
 ### Useful Additional Values
 There are additional values that can be adjusted via the Shopgate Color Config in Guru. Ask support agent to update.
 
