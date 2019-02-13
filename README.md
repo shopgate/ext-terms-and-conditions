@@ -3,21 +3,25 @@
 Frontend Extension which displays Terms and Conditions on the Cart Page.
 
 ## Configuration
-Add the Terms and conditons extension to your Shopgate Connect deployment config. 
+Add the Terms and conditions extension to your Shopgate Connect deployment config. 
 
 ```
 (...)
     {
-        "id": "@shopgate/ext-terms-and-conditions",
-        "version": "1.1.0"
+        "id": "@shopgate/terms-and-conditions",
+        "version": "1.0.0"
     }
 (...)
 ```
 
 Set the following values in your Shopgate Connect Admin:
-* checkBoxValues - (array of strings) used to hold your terms and conditions values.
-* textColor - (string) hex value for text color of terms and conditions text.
+* checkBoxValues - (array of Objects) used to hold your terms and conditions values.
+    * text - (string) text for terms and conditions checkbox.
+    * textColor - (string) hex value for text color of terms and conditions text.
+* termsDialog - (string) text for modal dialog.
 
+If the value checkBoxValues is left empty, checkout will be allowed and no checkboxes will be rendered.
+ 
 ### Useful Additional Values
 There are additional values that can be adjusted via the Shopgate Color Config in Guru. Ask support agent to update.
 
