@@ -35,7 +35,7 @@
     "react-transition-group": "^2.2.1"
   },
   "peerDependencies": {
-    "@shopgate/pwa-common": "6.0.1",
-    "@shopgate/pwa-ui-shared": "6.0.1"
+    "@shopgate/pwa-common": "^6.0.1",
+    "@shopgate/pwa-ui-shared": "^6.0.1"
   }
 }
