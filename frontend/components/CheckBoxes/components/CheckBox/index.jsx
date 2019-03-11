@@ -8,9 +8,17 @@ import styles from './style';
  * @param {Object} props props
  * @returns {JSX}
  */
-const CheckBox = props => (
+const Checkbox = props => (
   <div className={styles.wrapper}>
-    <label onClick={() => props.onChange(props.value)} className={styles.label} style={{ color: `${props.textColor}` }}>
+    <label
+      onClick={
+        props.wrapperIndex !== null ?
+          () => props.productOnChange(props.wrapperIndex, props.value) :
+          () => props.onChange(props.value)
+      }
+      className={styles.label}
+      style={{ color: `${props.textColor}` }}
+    >
       <SharedCheckbox
         className={styles.box}
         type="checkbox"
@@ -22,17 +30,21 @@ const CheckBox = props => (
   </div>
 );
 
-CheckBox.propTypes = {
+Checkbox.propTypes = {
   label: PropTypes.string.isRequired,
   textColor: PropTypes.string.isRequired,
   value: PropTypes.number.isRequired,
   checked: PropTypes.bool,
   onChange: PropTypes.func,
+  productOnChange: PropTypes.func,
+  wrapperIndex: PropTypes.number,
 };
 
-CheckBox.defaultProps = {
+Checkbox.defaultProps = {
   checked: false,
   onChange: () => {},
+  productOnChange: () => {},
+  wrapperIndex: null,
 };
 
-export default CheckBox;
+export default Checkbox;

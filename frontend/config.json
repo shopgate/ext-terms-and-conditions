@@ -1,4 +1,37 @@
 {
-  "checkBoxValues": [],
+  "checkboxValues": [
+    {
+      "text": "Check this box to continue",
+      "textColor": "#000"
+    },
+    {
+      "text": "Actually, also check this box",
+      "textColor": "#000"
+    }
+  ],
+  "productSpecificCheckboxValues": [
+    {
+      "productId": "001",
+      "productCheckboxValues": [
+        {
+          "text": "Required checkbox for 001",
+          "textColor": "#000"
+        },
+        {
+          "text": "Additional required checkbox for 001",
+          "textColor": "#000"
+        }
+      ]
+    },
+    {
+      "productId": "002",
+      "productCheckboxValues": [
+        {
+          "text": "Required checkbox for 002",
+          "textColor": "#000"
+        }
+      ]
+    }
+  ],
   "termsDialog": "You must agree with all terms and conditions of sale to check out."
 }
