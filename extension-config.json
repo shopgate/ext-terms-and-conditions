@@ -31,26 +31,20 @@
       "destination": "frontend",
       "default": [
         {
-          "text": "Check this box to continue",
-          "textColor": "#000"
+          "displayOn": "all products",
+          "productCheckboxValues": [
+            {
+              "text": "Required checkbox for all products",
+              "textColor": "#000"
+            },
+            {
+              "text": "Additional required checkbox for all products",
+              "textColor": "#000"
+            }
+          ]
         },
         {
-          "text": "Actually, also check this box",
-          "textColor": "#000"
-        }
-      ],
-      "params": {
-        "required": false,
-        "type": "json",
-        "label": "Terms and Conditions to Apply for all products"
-      }
-    },
-    "productSpecificCheckboxValues": {
-      "type": "admin",
-      "destination": "frontend",
-      "default": [
-        {
-          "productId": "001",
+          "displayOn": "001",
           "productCheckboxValues": [
             {
               "text": "Required checkbox for 001",
@@ -63,7 +57,7 @@
           ]
         },
         {
-          "productId": "002",
+          "displayOn": "002",
           "productCheckboxValues": [
             {
               "text": "Required checkbox for 002",
@@ -75,7 +69,7 @@
       "params": {
         "required": false,
         "type": "json",
-        "label": "Terms and conditions to apply for specific product Id's"
+        "label": "Terms and conditions to apply for specific product Id's or all products"
       }
     },
     "termsDialog": {

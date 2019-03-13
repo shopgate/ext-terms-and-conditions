@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Checkbox from '../Checkbox';
+import Checkbox from './components/Checkbox';
 
 /**
  * Product Specific checkbox wrapper
  * @param {Object} props props
  * @returns {JSX}
  */
-const ProductSpecificWrapper = (props) => {
+const CheckboxWrapper = (props) => {
   const checkboxes = props.product.productCheckboxValues.map((value, index) => (
     <Checkbox
       wrapperIndex={props.wrapperIndex}
@@ -22,17 +22,17 @@ const ProductSpecificWrapper = (props) => {
   return checkboxes;
 };
 
-ProductSpecificWrapper.propTypes = {
+CheckboxWrapper.propTypes = {
   wrapperIndex: PropTypes.number.isRequired,
   checkedValues: PropTypes.arrayOf(PropTypes.shape()),
   handleClick: PropTypes.func,
   product: PropTypes.shape(),
 };
 
-ProductSpecificWrapper.defaultProps = {
+CheckboxWrapper.defaultProps = {
   checkedValues: [],
   handleClick: () => {},
   product: {},
 };
 
-export default ProductSpecificWrapper;
+export default CheckboxWrapper;

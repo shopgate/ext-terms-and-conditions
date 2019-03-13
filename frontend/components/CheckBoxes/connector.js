@@ -1,17 +1,14 @@
 import { connect } from 'react-redux';
-import { getCartItems } from '@shopgate/pwa-common-commerce/cart/selectors';
-import { termsToDisplay } from '../../selectors';
+import { getTermsToDisplay, getCheckValues } from '../../selectors';
 import { updateCheckoutIsOrderable } from '../../action-creators';
 
 /**
- *
  * @param {Object} state The current state.
- * @param {Object} props The props.
  * @returns {Object}
  */
-const mapStateToProps = (state, props) => ({
-  productSpecificTerms: termsToDisplay(state),
-  cartItems: getCartItems(state, props),
+const mapStateToProps = state => ({
+  termsToDisplay: getTermsToDisplay(state),
+  checkValues: getCheckValues(state),
 });
 
 /**

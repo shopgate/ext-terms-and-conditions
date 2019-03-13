@@ -1,17 +1,20 @@
 {
   "checkboxValues": [
     {
-      "text": "Check this box to continue",
-      "textColor": "#000"
+      "displayOn": "all products",
+      "productCheckboxValues": [
+        {
+          "text": "Required checkbox for all products",
+          "textColor": "#000"
+        },
+        {
+          "text": "Additional required checkbox for all products",
+          "textColor": "#000"
+        }
+      ]
     },
     {
-      "text": "Actually, also check this box",
-      "textColor": "#000"
-    }
-  ],
-  "productSpecificCheckboxValues": [
-    {
-      "productId": "001",
+      "displayOn": "001",
       "productCheckboxValues": [
         {
           "text": "Required checkbox for 001",
@@ -24,7 +27,7 @@
       ]
     },
     {
-      "productId": "002",
+      "displayOn": "002",
       "productCheckboxValues": [
         {
           "text": "Required checkbox for 002",

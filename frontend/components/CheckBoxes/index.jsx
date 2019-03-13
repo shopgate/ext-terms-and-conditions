@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Checkbox from './components/Checkbox';
-import ProductSpecificWrapper from './components/ProductSpecificWrapper';
+import CheckboxWrapper from './components/CheckboxWrapper';
 import connect from './connector';
 import styles from './style';
 
@@ -10,15 +9,14 @@ import styles from './style';
  */
 class Checkboxes extends Component {
   static propTypes = {
-    config: PropTypes.shape().isRequired,
     setCheckoutIsOrderable: PropTypes.func.isRequired,
-    cartItems: PropTypes.arrayOf(PropTypes.shape()),
-    productSpecificTerms: PropTypes.arrayOf(PropTypes.shape()),
+    checkValues: PropTypes.arrayOf(PropTypes.shape()),
+    termsToDisplay: PropTypes.arrayOf(PropTypes.shape()),
   };
 
   static defaultProps = {
-    cartItems: [],
-    productSpecificTerms: {},
+    checkValues: {},
+    termsToDisplay: {},
   }
   /**
   * Constructs
@@ -26,11 +24,8 @@ class Checkboxes extends Component {
   */
   constructor(props) {
     super(props);
-    const values = [];
-    const specificValues = [];
     this.state = {
-      values,
-      specificValues,
+      stateCheckedValues: this.props.checkValues,
     };
   }
 
@@ -39,120 +34,81 @@ class Checkboxes extends Component {
    */
   componentDidMount() {
     this.props.setCheckoutIsOrderable(false);
-    this.generateCheckedValues();
   }
+
   /**
-   * Update checkbox values on component update.
-   * @param {Object} prevProps previous component props
+   * Update state with new props
+   * @param {Object} prevProps prevProps
    */
   componentDidUpdate(prevProps) {
-    console.warn('current cartProductCount', this.props.cartItems);
-    console.warn('prevProps cartProduct count', prevProps.cartItems);
-    if (this.props.cartItems !== prevProps.cartItems) {
-      this.generateCheckedValues();
+    if (this.props.checkValues !== prevProps.checkValues) {
+      this.updateCheckedValues();
     }
   }
+
   /**
-   * Generate Checked Values
+   * Updates
    */
-  generateCheckedValues() {
-    const updatedStateValues = [...this.state.values];
-    const updateStateSpecificValues = [...this.state.specificValues];
-    this.props.config.checkboxValues.forEach(() => {
-      updatedStateValues.push({ checked: false });
-    });
-    this.props.productSpecificTerms.forEach((product, index) => {
-      updateStateSpecificValues.push({
-        productId: `${product.productId}`,
-        checkedValues: [],
-      });
-      product.productCheckboxValues.forEach(() => {
-        updateStateSpecificValues[index].checkedValues.push({ checked: false });
-      });
-    });
-    this.setState(() => ({
-      values: updatedStateValues,
-      specificValues: updateStateSpecificValues,
+  updateCheckedValues() {
+    this.setState((state, props) => ({
+      stateCheckedValues: props.checkValues,
     }));
   }
+
   /**
    * Handle click of checkbox
    * @param {number} index index
-   */
-  handleClick = (index) => {
-    const updatedValues = [...this.state.values];
-    updatedValues[index].checked = !this.state.values[index].checked;
-    this.setState({ values: updatedValues });
-    this.updateCheckoutAllowed();
-  }
-  /**
-   * Handle click for specific product checkbox
-   * @param {number} index index
    * @param {number} checkedIndex checkedIndec
    */
-  handleSpecificClick = (index, checkedIndex) => {
-    const updateSpecificValues = [...this.state.specificValues];
-    updateSpecificValues[index].checkedValues[checkedIndex].checked =
-      !this.state.specificValues[index].checkedValues[checkedIndex].checked;
-    this.setState({ specificValues: updateSpecificValues });
+  handleClick = (index, checkedIndex) => {
+    const updateStateCheckedValues = [...this.state.stateCheckedValues];
+    updateStateCheckedValues[index].checkedValues[checkedIndex].checked =
+      !this.state.stateCheckedValues[index].checkedValues[checkedIndex].checked;
+    this.setState({ stateCheckedValues: updateStateCheckedValues });
     this.updateCheckoutAllowed();
   }
 
   updateCheckoutAllowed = () => {
-    const combinedValuesArray = this.state.values;
-    this.state.specificValues.forEach((product) => {
-      product.checkedValues.forEach((value) => {
-        combinedValuesArray.push(value);
-      });
+    let orderable = true;
+    this.state.stateCheckedValues.forEach((element) => {
+      const { checkedValues = [] } = element || {};
+      const falseItem = checkedValues.find(value => value.checked === false);
+      if (falseItem) {
+        orderable = false;
+      }
     });
-    const filteredValuesArray = combinedValuesArray.filter(value => value.checked === false);
-    console.warn('filtered values update checkout', filteredValuesArray);
-    if (filteredValuesArray.length > 0) {
-      this.props.setCheckoutIsOrderable(false);
-      return;
-    }
-    this.props.setCheckoutIsOrderable(true);
+    this.props.setCheckoutIsOrderable(orderable);
   }
 
   /**
    * @returns {JSX}
    */
   render() {
-    console.warn(this.props.cartItems);
     const {
-      productSpecificTerms,
-      config,
+      termsToDisplay,
     } = this.props;
-    let productSpecificCheckboxes = [];
-    let checkboxes = [];
-    if (this.state.values.length > 0) {
-      checkboxes = config.checkboxValues.map((value, index) => (
-        <Checkbox
-          key={index.toString()}
-          value={index}
-          label={value.text}
-          checked={this.state.values[index].checked}
-          onChange={this.handleClick}
-          textColor={value.textColor}
-        />
-      ));
-    }
-    if (this.state.specificValues.length > 0) {
-      productSpecificCheckboxes = productSpecificTerms.map((product, index) => (
-        <ProductSpecificWrapper
-          checkedValues={this.state.specificValues[index].checkedValues}
-          product={product}
-          key={index.toString()}
-          wrapperIndex={index}
-          handleClick={this.handleSpecificClick}
-        />
-      ));
-    }
+    const {
+      stateCheckedValues,
+    } = this.state;
+    let checkboxes = null;
+    console.warn('stateCheckedValues', stateCheckedValues);
+    checkboxes = termsToDisplay.map((product, index) => {
+      if (typeof stateCheckedValues[index].checkedValues !== 'undefined') {
+        return (
+          <CheckboxWrapper
+            checkedValues={stateCheckedValues[index].checkedValues}
+            product={product}
+            key={index.toString()}
+            wrapperIndex={index}
+            handleClick={this.handleClick}
+          />);
+      }
+      return null;
+    });
     return (
       <div className={styles.wrapper}>
         <div className={styles.content}>
           { checkboxes }
-          { productSpecificCheckboxes }
         </div>
       </div>
     );
