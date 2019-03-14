@@ -9,15 +9,10 @@ import styles from './style';
  */
 class Checkboxes extends Component {
   static propTypes = {
+    checkValues: PropTypes.arrayOf(PropTypes.shape()).isRequired,
     setCheckoutIsOrderable: PropTypes.func.isRequired,
-    checkValues: PropTypes.arrayOf(PropTypes.shape()),
-    termsToDisplay: PropTypes.arrayOf(PropTypes.shape()),
+    termsToDisplay: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   };
-
-  static defaultProps = {
-    checkValues: {},
-    termsToDisplay: {},
-  }
   /**
   * Constructs
   * @param {Object} props props.
@@ -25,7 +20,7 @@ class Checkboxes extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      stateCheckedValues: this.props.checkValues,
+      checkValues: this.props.checkValues,
     };
   }
 
@@ -51,7 +46,7 @@ class Checkboxes extends Component {
    */
   updateCheckedValues() {
     this.setState((state, props) => ({
-      stateCheckedValues: props.checkValues,
+      checkValues: props.checkValues,
     }));
   }
 
@@ -61,16 +56,16 @@ class Checkboxes extends Component {
    * @param {number} checkedIndex checkedIndec
    */
   handleClick = (index, checkedIndex) => {
-    const updateStateCheckedValues = [...this.state.stateCheckedValues];
-    updateStateCheckedValues[index].checkedValues[checkedIndex].checked =
-      !this.state.stateCheckedValues[index].checkedValues[checkedIndex].checked;
-    this.setState({ stateCheckedValues: updateStateCheckedValues });
+    const updateCheckValues = [...this.state.checkValues];
+    updateCheckValues[index].checkedValues[checkedIndex].checked =
+      !this.state.checkValues[index].checkedValues[checkedIndex].checked;
+    this.setState({ checkValues: updateCheckValues });
     this.updateCheckoutAllowed();
   }
 
   updateCheckoutAllowed = () => {
     let orderable = true;
-    this.state.stateCheckedValues.forEach((element) => {
+    this.state.checkValues.forEach((element) => {
       const { checkedValues = [] } = element || {};
       const falseItem = checkedValues.find(value => value.checked === false);
       if (falseItem) {
@@ -88,15 +83,13 @@ class Checkboxes extends Component {
       termsToDisplay,
     } = this.props;
     const {
-      stateCheckedValues,
+      checkValues,
     } = this.state;
-    let checkboxes = null;
-    console.warn('stateCheckedValues', stateCheckedValues);
-    checkboxes = termsToDisplay.map((product, index) => {
-      if (typeof stateCheckedValues[index].checkedValues !== 'undefined') {
+    const checkboxes = termsToDisplay.map((product, index) => {
+      if (typeof checkValues[index].checkedValues !== 'undefined') {
         return (
           <CheckboxWrapper
-            checkedValues={stateCheckedValues[index].checkedValues}
+            checkedValues={checkValues[index].checkedValues}
             product={product}
             key={index.toString()}
             wrapperIndex={index}

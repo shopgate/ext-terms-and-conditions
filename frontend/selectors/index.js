@@ -46,7 +46,7 @@ export const getCheckValues = createSelector(
   (terms) => {
     const checkedValues = [];
     if (!terms) {
-      return checkedValues;
+      return null;
     }
     terms.forEach((product, index) => {
       checkedValues.push({
