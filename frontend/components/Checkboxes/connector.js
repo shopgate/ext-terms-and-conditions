@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
-import { getTermsToDisplay, getCheckValues } from '../../selectors';
+import fetchProductsById from '@shopgate/pwa-common-commerce/product/actions/fetchProductsById';
+import { getTermsToDisplay, getCheckValues, getCartProductIds } from '../../selectors';
 import { updateCheckoutIsOrderable } from '../../action-creators';
 
 /**
@@ -9,6 +10,7 @@ import { updateCheckoutIsOrderable } from '../../action-creators';
 const mapStateToProps = state => ({
   termsToDisplay: getTermsToDisplay(state),
   checkValues: getCheckValues(state),
+  cartProductIds: getCartProductIds(state),
 });
 
 /**
@@ -18,6 +20,7 @@ const mapStateToProps = state => ({
  */
 const mapDispatchToProps = dispatch => ({
   setCheckoutIsOrderable: isOrderable => dispatch(updateCheckoutIsOrderable(isOrderable)),
+  getProducts: productIds => dispatch(fetchProductsById(productIds)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps);

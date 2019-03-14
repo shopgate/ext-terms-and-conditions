@@ -1,5 +1,6 @@
 import { createSelector } from 'reselect';
 import { getCartProducts } from '@shopgate/pwa-common-commerce/cart/selectors';
+import { getProducts } from '@shopgate/pwa-common-commerce/product/selectors/product';
 import getConfig from '../helpers/getConfig';
 
 const { checkboxValues } = getConfig();
@@ -30,8 +31,27 @@ export const getCartProductIds = createSelector(
   }
 );
 
-export const getTermsToDisplay = createSelector(
+export const getTermProductIds = createSelector(
   getCartProductIds,
+  getProducts,
+  (cartProductIds, products) => {
+    const productsToCheck = [];
+    if (!cartProductIds) {
+      return null;
+    }
+    cartProductIds.forEach((cartProductId) => {
+      if (products.hasOwnProperty(cartProductId)) {
+        const testBaseProductId = products[cartProductId].productData.baseProductId;
+        const idToPush = (testBaseProductId || cartProductId);
+        productsToCheck.push(idToPush);
+      }
+    });
+    return productsToCheck;
+  }
+);
+
+export const getTermsToDisplay = createSelector(
+  getTermProductIds,
   (productIds) => {
     if (!productIds) {
       return null;

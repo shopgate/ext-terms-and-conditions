@@ -34,6 +34,15 @@
           "textColor": "#000"
         }
       ]
+    },
+    {
+      "displayOn": "003",
+      "productCheckboxValues": [
+        {
+          "text": "Required checkbox for 003",
+          "textColor": "#000"
+        }
+      ]
     }
   ],
   "termsDialog": "You must agree with all terms and conditions of sale to check out."

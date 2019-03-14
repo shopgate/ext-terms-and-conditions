@@ -9,7 +9,9 @@ import styles from './style';
  */
 class Checkboxes extends Component {
   static propTypes = {
+    cartProductIds: PropTypes.arrayOf(PropTypes.string).isRequired,
     checkValues: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+    getProducts: PropTypes.func.isRequired,
     setCheckoutIsOrderable: PropTypes.func.isRequired,
     termsToDisplay: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   };
@@ -26,9 +28,13 @@ class Checkboxes extends Component {
   /**
    * Ensure Checkout is disabled on mount
    */
-  // eslint-disable-next-line extra-rules/potential-point-free, require-jsdoc
   componentDidMount() {
+    const {
+      getProducts,
+      cartProductIds,
+    } = this.props;
     this.updateCheckoutAllowed();
+    getProducts(cartProductIds);
   }
 
   /**

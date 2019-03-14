@@ -29,43 +29,7 @@
     "checkboxValues": {
       "type": "admin",
       "destination": "frontend",
-      "default": [
-        {
-          "displayOn": "all products",
-          "productCheckboxValues": [
-            {
-              "text": "Required checkbox for all products",
-              "textColor": "#000"
-            },
-            {
-              "text": "Additional required checkbox for all products",
-              "textColor": "#000"
-            }
-          ]
-        },
-        {
-          "displayOn": "001",
-          "productCheckboxValues": [
-            {
-              "text": "Required checkbox for 001",
-              "textColor": "#000"
-            },
-            {
-              "text": "Additional required checkbox for 001",
-              "textColor": "#000"
-            }
-          ]
-        },
-        {
-          "displayOn": "002",
-          "productCheckboxValues": [
-            {
-              "text": "Required checkbox for 002",
-              "textColor": "#000"
-            }
-          ]
-        }
-      ],
+      "default": [],
       "params": {
         "required": false,
         "type": "json",
