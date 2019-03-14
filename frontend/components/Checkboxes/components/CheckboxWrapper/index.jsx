@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Checkbox from './components/Checkbox';
 
 /**
- * Product Specific checkbox wrapper
+ * Checkbox wrapper for productCheckboxValues
  * @param {Object} props props
  * @returns {JSX}
  */
@@ -15,7 +15,7 @@ const CheckboxWrapper = (props) => {
       value={index}
       label={value.text}
       checked={props.checkedValues[index].checked}
-      productOnChange={props.handleClick}
+      onChange={props.handleClick}
       textColor={value.textColor}
     />
   ));

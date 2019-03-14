@@ -6,26 +6,52 @@
 - Added support for specific product Id configurations. Example config:
 ```json
 {
-  "productSpecificCheckboxValues": [
-    {
-      "productId": "001",
-      "productCheckboxValues": [
-        {
-          "text": "Required checkbox for 001",
-          "textColor": "#000"
-        }
-      ]
-    },
-    {
-      "productId": "002",
-      "productCheckboxValues": [
-        {
-          "text": "Required checkbox for 002",
-          "textColor": "#000"
-        }
-      ]
+  "checkboxValues": {
+    "type": "admin",
+    "destination": "frontend",
+    "default": [
+      {
+        "displayOn": "all products",
+        "productCheckboxValues": [
+          {
+            "text": "Required checkbox for all products",
+            "textColor": "#000"
+          },
+          {
+            "text": "Additional required checkbox for all products",
+            "textColor": "#000"
+          }
+        ]
+      },
+      {
+        "displayOn": "001",
+        "productCheckboxValues": [
+          {
+            "text": "Required checkbox for 001",
+            "textColor": "#000"
+          },
+          {
+            "text": "Additional required checkbox for 001",
+            "textColor": "#000"
+          }
+        ]
+      },
+      {
+        "displayOn": "002",
+        "productCheckboxValues": [
+          {
+            "text": "Required checkbox for 002",
+            "textColor": "#000"
+          }
+        ]
+      }
+    ],
+    "params": {
+      "required": false,
+      "type": "json",
+      "label": "Terms and conditions to apply for specific product Id's or all products"
     }
-  ]
+  }
 }
 ```
 

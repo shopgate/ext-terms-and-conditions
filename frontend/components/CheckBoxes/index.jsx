@@ -38,11 +38,12 @@ class Checkboxes extends Component {
   componentDidUpdate(prevProps) {
     if (this.props.checkValues !== prevProps.checkValues) {
       this.updateCheckedValues();
+      this.props.setCheckoutIsOrderable(false);
     }
   }
 
   /**
-   * Updates
+   * checkValues state with new props
    */
   updateCheckedValues() {
     this.setState((state, props) => ({
@@ -63,6 +64,9 @@ class Checkboxes extends Component {
     this.updateCheckoutAllowed();
   }
 
+  /**
+   * Dispatch setCheckoutIsOrderable
+   */
   updateCheckoutAllowed = () => {
     let orderable = true;
     this.state.checkValues.forEach((element) => {
@@ -86,7 +90,7 @@ class Checkboxes extends Component {
       checkValues,
     } = this.state;
     const checkboxes = termsToDisplay.map((product, index) => {
-      if (typeof checkValues[index].checkedValues !== 'undefined') {
+      if (typeof checkValues[index] !== 'undefined') {
         return (
           <CheckboxWrapper
             checkedValues={checkValues[index].checkedValues}
@@ -97,7 +101,7 @@ class Checkboxes extends Component {
           />);
       }
       return null;
-    });
+    }).filter(element => element !== null);
     return (
       <div className={styles.wrapper}>
         <div className={styles.content}>

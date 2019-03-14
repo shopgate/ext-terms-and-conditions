@@ -11,11 +11,7 @@ import styles from './style';
 const Checkbox = props => (
   <div className={styles.wrapper}>
     <label
-      onClick={
-        props.wrapperIndex !== null ?
-          () => props.productOnChange(props.wrapperIndex, props.value) :
-          () => props.onChange(props.value)
-      }
+      onClick={() => props.onChange(props.wrapperIndex, props.value)}
       className={styles.label}
       style={{ color: `${props.textColor}` }}
     >
@@ -36,14 +32,12 @@ Checkbox.propTypes = {
   value: PropTypes.number.isRequired,
   checked: PropTypes.bool,
   onChange: PropTypes.func,
-  productOnChange: PropTypes.func,
   wrapperIndex: PropTypes.number,
 };
 
 Checkbox.defaultProps = {
   checked: false,
   onChange: () => {},
-  productOnChange: () => {},
   wrapperIndex: null,
 };
 

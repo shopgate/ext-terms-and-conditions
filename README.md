@@ -15,11 +15,8 @@ Add the Terms and conditions extension to your Shopgate Connect deployment confi
 ```
 
 Set the following values in your Shopgate Connect Admin:
-* checkboxValues - (array of Objects) used to hold your terms and conditions values.
-    * text - (string) text for terms and conditions checkbox.
-    * textColor - (string) hex value for text color of terms and conditions text.
-* productSpecificCheckboxValues - (array of Objects) contains specific product terms and conditions information.
-    * productId - (string) triggering product Id.
+* checkboxValues - (array of Objects) contains specific product terms and conditions information.
+    * displayOn - (string) triggering product Id or all proudcts (triggering string to list for all products)
     * productCheckboxValues - (array of Objects) used to hold terms and conditions values for specific products.
         * text - (string) text for terms and conditions checkbox.
         * textColor - (string) hex value for text color of terms and conditions text.
@@ -29,39 +26,64 @@ If the value checkBoxValues is left empty, checkout will be allowed and no check
 
 ## Example Config
 ```
-   {
-       "checkboxValues: [
-           {
-               "text": "Check this box to continue",
-               "textColor": "#000"
-           },
-           {
-               "text": "Actually, also check this box",
-               "textColor": "#000"
-           }
-       ],
-       "productSpecificCheckboxValues: [
-           {
-               "productId": "001",
-               "productCheckboxValues": [
-                   {
-                    "text": "Required checkbox for 001",
-                    "textColor": "#000"
-                   }
-               ]
-           },
-           {
-               "productId": "002",
-               "productCheckboxValues": [
-                   {
-                    "text": "Required checkbox for 002",
-                    "textColor": "#000"
-                   }
-               ]
-           }
-       ],
-       "termsDialog": "Please check both boxes to continue"
-   } 
+  {
+    "checkboxValues": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": [
+        {
+          "displayOn": "all products",
+          "productCheckboxValues": [
+            {
+              "text": "Required checkbox for all products",
+              "textColor": "#000"
+            },
+            {
+              "text": "Additional required checkbox for all products",
+              "textColor": "#000"
+            }
+          ]
+        },
+        {
+          "displayOn": "001",
+          "productCheckboxValues": [
+            {
+              "text": "Required checkbox for 001",
+              "textColor": "#000"
+            },
+            {
+              "text": "Additional required checkbox for 001",
+              "textColor": "#000"
+            }
+          ]
+        },
+        {
+          "displayOn": "002",
+          "productCheckboxValues": [
+            {
+              "text": "Required checkbox for 002",
+              "textColor": "#000"
+            }
+          ]
+        }
+      ],
+      "params": {
+        "required": false,
+        "type": "json",
+        "label": "Terms and conditions to apply for specific product Id's or all products"
+      }
+    },
+    "termsDialog": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": "You must agree with all terms and conditions of sale to check out.",
+      "params": {
+        "required": false,
+        "type": "string",
+        "label": "Terms and Conditions dialog notice"
+      }
+    }
+  }
 ```
  
 ### Useful Additional Values
