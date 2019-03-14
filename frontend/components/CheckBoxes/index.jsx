@@ -23,12 +23,12 @@ class Checkboxes extends Component {
       checkValues: this.props.checkValues,
     };
   }
-
   /**
    * Ensure Checkout is disabled on mount
    */
+  // eslint-disable-next-line extra-rules/potential-point-free, require-jsdoc
   componentDidMount() {
-    this.props.setCheckoutIsOrderable(false);
+    this.updateCheckoutAllowed();
   }
 
   /**
