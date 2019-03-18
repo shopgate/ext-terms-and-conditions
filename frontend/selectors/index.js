@@ -1,6 +1,7 @@
 import { createSelector } from 'reselect';
 import { getCartProducts } from '@shopgate/pwa-common-commerce/cart/selectors';
 import { getProducts } from '@shopgate/pwa-common-commerce/product/selectors/product';
+import { EXTENSION_STATE, ALL_PRODUCTS } from '../constants';
 import getConfig from '../helpers/getConfig';
 
 const { checkboxValues } = getConfig();
@@ -13,7 +14,7 @@ const getExtensionsState = state => state.extensions;
 
 const getExtensionState = createSelector(
   getExtensionsState,
-  extensionsState => extensionsState['@shopgate/terms-and-conditions/isOrderableByTerms']
+  extensionsState => extensionsState[EXTENSION_STATE]
 );
 
 export const getTermsStatus = createSelector(
@@ -42,8 +43,11 @@ export const getTermProductIds = createSelector(
     cartProductIds.forEach((cartProductId) => {
       if (products.hasOwnProperty(cartProductId)) {
         const testBaseProductId = products[cartProductId].productData.baseProductId;
-        const idToPush = (testBaseProductId || cartProductId);
-        productsToCheck.push(idToPush);
+        if (testBaseProductId) {
+          productsToCheck.push(testBaseProductId, cartProductId);
+          return;
+        }
+        productsToCheck.push(cartProductId);
       }
     });
     return productsToCheck;
@@ -57,7 +61,7 @@ export const getTermsToDisplay = createSelector(
       return null;
     }
     return checkboxValues.filter((value =>
-      productIds.includes(value.displayOn) || value.displayOn === 'all products'));
+      productIds.includes(value.displayOn) || value.displayOn === ALL_PRODUCTS));
   }
 );
 

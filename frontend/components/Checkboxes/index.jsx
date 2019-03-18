@@ -96,17 +96,17 @@ class Checkboxes extends Component {
       checkValues,
     } = this.state;
     const checkboxes = termsToDisplay.map((product, index) => {
-      if (typeof checkValues[index] !== 'undefined') {
-        return (
-          <CheckboxWrapper
-            checkedValues={checkValues[index].checkedValues}
-            product={product}
-            key={index.toString()}
-            wrapperIndex={index}
-            handleClick={this.handleClick}
-          />);
+      if (typeof checkValues[index] === 'undefined') {
+        return null;
       }
-      return null;
+      return (
+        <CheckboxWrapper
+          checkedValues={checkValues[index].checkedValues}
+          product={product}
+          key={index.toString()}
+          wrapperIndex={index}
+          handleClick={this.handleClick}
+        />);
     }).filter(element => element !== null);
     return (
       <div className={styles.wrapper}>
