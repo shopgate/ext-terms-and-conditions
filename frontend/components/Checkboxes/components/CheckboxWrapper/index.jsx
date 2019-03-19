@@ -8,8 +8,11 @@ import Checkbox from './components/Checkbox';
  * @returns {JSX}
  */
 const CheckboxWrapper = (props) => {
-  const checkboxes = props.product.productCheckboxValues.map((value, index) => (
-    <Checkbox
+  const checkboxes = props.product.productCheckboxValues.map((value, index) => {
+    if (typeof props.checkedValues[index] === 'undefined') {
+      return null;
+    }
+    return (<Checkbox
       wrapperIndex={props.wrapperIndex}
       key={index.toString()}
       value={index}
@@ -17,8 +20,8 @@ const CheckboxWrapper = (props) => {
       checked={props.checkedValues[index].checked}
       onChange={props.handleClick}
       textColor={value.textColor}
-    />
-  ));
+    />);
+  });
   return checkboxes;
 };
 
