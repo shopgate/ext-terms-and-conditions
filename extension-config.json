@@ -1,5 +1,5 @@
 {
-  "version": "1.0.1",
+  "version": "1.1.0",
   "id": "@shopgate/terms-and-conditions",
   "components": [
     {
@@ -26,14 +26,14 @@
     }
   ],
   "configuration": {
-    "checkBoxValues": {
+    "checkboxValues": {
       "type": "admin",
       "destination": "frontend",
       "default": [],
       "params": {
         "required": false,
         "type": "json",
-        "label": "Terms and Conditions to Apply"
+        "label": "Terms and conditions to apply for specific product Id's or all products"
       }
     },
     "termsDialog": {
