@@ -1,0 +1,230 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox should be clickable 1`] = `
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+  <Checkbox
+    checked={false}
+    label="mock"
+    onChange={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            null,
+            0,
+          ],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    textColor="#000"
+    value={0}
+    wrapperIndex={null}
+  >
+    <div
+      className="css-1ye9cz5"
+    >
+      <label
+        className="css-b2ryqc"
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "#000",
+          }
+        }
+      >
+        <Checkbox
+          checked={false}
+          checkedClassName="css-5oj2eb"
+          className="css-1pwqlfb"
+          type="checkbox"
+          unCheckedClassName="css-1n9afhg"
+          value={0}
+        >
+          <Checkbox
+            checked={false}
+            checkedIcon={
+              <Checked
+                className="css-37nc4w css-5oj2eb"
+              />
+            }
+            className="css-1pwqlfb"
+            disabled={false}
+            label={null}
+            labelPosition="left"
+            onCheck={[Function]}
+            type="checkbox"
+            uncheckedIcon={
+              <Unchecked
+                className="css-37nc4w css-1n9afhg"
+              />
+            }
+            value={0}
+          >
+            <div
+              aria-hidden={true}
+              className="css-1pwqlfb"
+              onClick={[Function]}
+            >
+              <Unchecked
+                className="css-37nc4w css-1n9afhg"
+              >
+                <Icon
+                  className="css-37nc4w css-1n9afhg"
+                  color={null}
+                  content="<path d=\\"M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z\\"/>"
+                  size="inherit"
+                  viewBox="0 0 24 24"
+                >
+                  <svg
+                    className="css-yys9hb css-37nc4w css-1n9afhg"
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "<path d=\\"M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z\\"/>",
+                      }
+                    }
+                    style={
+                      Object {
+                        "fill": null,
+                        "fontSize": "inherit",
+                      }
+                    }
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  />
+                </Icon>
+              </Unchecked>
+            </div>
+          </Checkbox>
+        </Checkbox>
+        <span
+          className="css-64ph5z"
+        >
+          mock
+        </span>
+      </label>
+    </div>
+  </Checkbox>
+</Provider>
+`;
+
+exports[`Checkbox should render 1`] = `
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+  <Checkbox
+    checked={false}
+    label="mock"
+    onChange={[Function]}
+    textColor="#000"
+    value={0}
+    wrapperIndex={null}
+  >
+    <div
+      className="css-1ye9cz5"
+    >
+      <label
+        className="css-b2ryqc"
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "#000",
+          }
+        }
+      >
+        <Checkbox
+          checked={false}
+          checkedClassName="css-5oj2eb"
+          className="css-1pwqlfb"
+          type="checkbox"
+          unCheckedClassName="css-1n9afhg"
+          value={0}
+        >
+          <Checkbox
+            checked={false}
+            checkedIcon={
+              <Checked
+                className="css-37nc4w css-5oj2eb"
+              />
+            }
+            className="css-1pwqlfb"
+            disabled={false}
+            label={null}
+            labelPosition="left"
+            onCheck={[Function]}
+            type="checkbox"
+            uncheckedIcon={
+              <Unchecked
+                className="css-37nc4w css-1n9afhg"
+              />
+            }
+            value={0}
+          >
+            <div
+              aria-hidden={true}
+              className="css-1pwqlfb"
+              onClick={[Function]}
+            >
+              <Unchecked
+                className="css-37nc4w css-1n9afhg"
+              >
+                <Icon
+                  className="css-37nc4w css-1n9afhg"
+                  color={null}
+                  content="<path d=\\"M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z\\"/>"
+                  size="inherit"
+                  viewBox="0 0 24 24"
+                >
+                  <svg
+                    className="css-yys9hb css-37nc4w css-1n9afhg"
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "<path d=\\"M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z\\"/>",
+                      }
+                    }
+                    style={
+                      Object {
+                        "fill": null,
+                        "fontSize": "inherit",
+                      }
+                    }
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  />
+                </Icon>
+              </Unchecked>
+            </div>
+          </Checkbox>
+        </Checkbox>
+        <span
+          className="css-64ph5z"
+        >
+          mock
+        </span>
+      </label>
+    </div>
+  </Checkbox>
+</Provider>
+`;

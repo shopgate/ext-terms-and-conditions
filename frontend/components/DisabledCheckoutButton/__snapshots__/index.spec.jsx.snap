@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DisabledCheckoutButton should render 1`] = `
+<DisabledCheckoutButton
+  isActive={false}
+  isOrderable={false}
+  showTermsNotice={[Function]}
+>
+  <RippleButton
+    className="css-ce5yef"
+    disabled={false}
+    flat={false}
+    onClick={[Function]}
+    rippleClassName=""
+    rippleSize={null}
+    testId="Button"
+    type="regular"
+    wrapContent={true}
+  >
+    <Button
+      className="css-ce5yef"
+      disabled={false}
+      flat={false}
+      onClick={[Function]}
+      testId="Button"
+      type="regular"
+      wrapContent={false}
+    >
+      <Button
+        className="css-kevfw8 css-ce5yef"
+        disabled={false}
+        onClick={[Function]}
+        testId="Button"
+      >
+        <button
+          className="css-kevfw8 css-ce5yef css-1rn65c0"
+          data-test-id="Button"
+          disabled={false}
+          onClick={[Function]}
+        >
+          <Ripple
+            className="css-1fscwua "
+            color="#000"
+            disabled={false}
+            fill={true}
+            onClick={[Function]}
+            onComplete={[Function]}
+            overflow={false}
+            size={null}
+          >
+            <div
+              aria-hidden={true}
+              className="css-1fscwua "
+              data-test-id="Ripple"
+              onClick={[Function]}
+              style={null}
+            >
+              <Translate
+                className=""
+                params={Object {}}
+                string="cart.checkout"
+              >
+                <span
+                  className=""
+                >
+                  cart.checkout
+                </span>
+              </Translate>
+            </div>
+          </Ripple>
+        </button>
+      </Button>
+    </Button>
+  </RippleButton>
+</DisabledCheckoutButton>
+`;
