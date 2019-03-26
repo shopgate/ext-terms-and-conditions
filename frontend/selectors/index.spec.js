@@ -1,6 +1,7 @@
 import {
   defaultState,
   createStateWithProducts,
+  mockedConfig,
 } from '../mock';
 import {
   getTermsStatus,
@@ -10,6 +11,8 @@ import {
   getCheckValues,
 } from './index';
 import { EXTENSION_STATE } from '../constants';
+
+jest.mock('../helpers/getConfig', () => () => mockedConfig);
 
 describe('selectors', () => {
   beforeEach(() => {

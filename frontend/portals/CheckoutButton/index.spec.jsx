@@ -7,8 +7,6 @@ import CheckoutButton from './index';
 
 jest.mock('../../components/DisabledCheckoutButton', () => () => <div>Disabled Checkbox</div>);
 
-const mockedConfig = null;
-
 jest.mock('../../selectors', () => ({
   getTermsStatus: jest.fn().mockReturnValue(false),
 }));

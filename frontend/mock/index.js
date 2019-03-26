@@ -14,7 +14,7 @@ export const defaultState = {
   },
 };
 
-export const config = {
+export const mockedConfig = {
   checkboxValues: [
     {
       displayOn: 'all products',
