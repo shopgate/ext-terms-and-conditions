@@ -1,6 +1,6 @@
 {
   "name": "@shopgate/terms-and-conditions",
-  "version": "1.1.1",
+  "version": "1.1.0",
   "description": "Frontend Extension which displays Terms and Conditions on the Cart Page",
   "license": "Apache-2.0",
   "scripts": {
