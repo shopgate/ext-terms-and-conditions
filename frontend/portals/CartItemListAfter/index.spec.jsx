@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 
 jest.mock('../../components/Checkboxes', () => () => <div>Mocked Checkboxes</div>);
 
-let mockedConfig = null;
+let mockedConfig = [];
 jest.mock('../../helpers/getConfig', () => () => ({
   checkboxValues: mockedConfig,
 }));
@@ -11,12 +11,6 @@ jest.mock('../../helpers/getConfig', () => () => ({
 describe('CartItemListAfter', () => {
   beforeEach(() => {
     jest.resetModules();
-  });
-  it('should render null when no config is passed', () => {
-    // eslint-disable-next-line global-require
-    const CartItemListAfter = require('./index').default;
-    const component = mount(<CartItemListAfter />);
-    expect(component.html()).toBe(null);
   });
   it('should render null when an empty config is passed', () => {
     mockedConfig = [];
