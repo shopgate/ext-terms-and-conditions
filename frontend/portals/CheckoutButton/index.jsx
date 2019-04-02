@@ -7,7 +7,7 @@ import connect from './connector';
  * @param {Object} props props.
  * @returns {JSX}
  */
-const checkoutButton = (props) => {
+const CheckoutButton = (props) => {
   if (!props.isOrderable) {
     return (
       <DisabledCheckoutButton
@@ -20,14 +20,14 @@ const checkoutButton = (props) => {
   return props.children;
 };
 
-checkoutButton.propTypes = {
+CheckoutButton.propTypes = {
   children: PropTypes.node.isRequired,
   isOrderable: PropTypes.bool,
   showTermsNotice: PropTypes.func,
 };
 
-checkoutButton.defaultProps = {
+CheckoutButton.defaultProps = {
   isOrderable: false,
   showTermsNotice: () => {},
 };
-export default connect(checkoutButton);
+export default connect(CheckoutButton);

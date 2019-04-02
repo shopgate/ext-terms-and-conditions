@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CheckoutButton /> should render as expected when not orderable 1`] = `
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+  <Connect(CheckoutButton)>
+    <CheckoutButton
+      isOrderable={false}
+      showTermsNotice={[Function]}
+    >
+      <Component
+        isOrderable={false}
+        showTermsNotice={[Function]}
+      >
+        <div>
+          Disabled Checkbox
+        </div>
+      </Component>
+    </CheckoutButton>
+  </Connect(CheckoutButton)>
+</Provider>
+`;
+
+exports[`<CheckoutButton /> should render props.children when orderable 1`] = `
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+  <Connect(CheckoutButton)>
+    <CheckoutButton
+      isOrderable={true}
+      showTermsNotice={[Function]}
+    >
+      Child
+    </CheckoutButton>
+  </Connect(CheckoutButton)>
+</Provider>
+`;

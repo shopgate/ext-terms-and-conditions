@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkboxes should render checkboxwrapper 1`] = `
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+  <Connect(Checkboxes)>
+    <Checkboxes
+      cartProductIds={
+        Array [
+          "1",
+        ]
+      }
+      checkValues={
+        Array [
+          Object {},
+        ]
+      }
+      getProducts={[Function]}
+      setCheckoutIsOrderable={[Function]}
+      termsToDisplay={
+        Array [
+          Object {},
+        ]
+      }
+    >
+      <div
+        className="css-yrz0vs"
+      >
+        <div
+          className="css-vmv4gl"
+        >
+          <Component
+            handleClick={[Function]}
+            key="0"
+            product={Object {}}
+            wrapperIndex={0}
+          >
+            <div>
+              CheckboxWrapper
+            </div>
+          </Component>
+        </div>
+      </div>
+    </Checkboxes>
+  </Connect(Checkboxes)>
+</Provider>
+`;
