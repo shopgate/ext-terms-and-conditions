@@ -28,6 +28,7 @@
     "babel-preset-react": "^6.24.1",
     "eslint": "^4.19.1",
     "glamor": "^2.20.40",
+    "jest": "^22.4.2",
     "prop-types": "^15.6.0",
     "react": "~16.8.4",
     "react-dom": "~16.8.4",

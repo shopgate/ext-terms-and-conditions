@@ -42,7 +42,7 @@ describe('CheckboxWrapper', () => {
         />
       </Provider>
     ));
-    expect(component.html()).toBe(null);
+    expect(component.html()).toBe('');
   });
   it('should render', () => {
     const component = mount((
