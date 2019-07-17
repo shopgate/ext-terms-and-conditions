@@ -46,6 +46,7 @@ class Checkboxes extends Component {
       this.updateCheckedValues();
       this.props.setCheckoutIsOrderable(false);
     }
+    this.updateCheckoutAllowed();
   }
 
   /**
@@ -60,7 +61,7 @@ class Checkboxes extends Component {
   /**
    * Handle click of checkbox
    * @param {number} index index
-   * @param {number} checkedIndex checkedIndec
+   * @param {number} checkedIndex checkedIndex
    */
   handleClick = (index, checkedIndex) => {
     const updateCheckValues = [...this.state.checkValues];
@@ -111,7 +112,7 @@ class Checkboxes extends Component {
     return (
       <div className={styles.wrapper}>
         <div className={styles.content}>
-          { checkboxes }
+          {checkboxes}
         </div>
       </div>
     );

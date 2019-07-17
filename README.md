@@ -9,7 +9,7 @@ Add the Terms and conditions extension to your Shopgate Connect deployment confi
 (...)
     {
         "id": "@shopgate/terms-and-conditions",
-        "version": "1.1.0"
+        "version": "1.1.1"
     }
 (...)
 ```
@@ -26,64 +26,38 @@ If the value checkBoxValues is left empty, checkout will be allowed and no check
 
 ## Example Config
 ```
-  {
-    "checkboxValues": {
-      "type": "admin",
-      "destination": "frontend",
-      "default": [
+{
+  "checkboxValues": [
+    {
+      "displayOn": "all products",
+      "productCheckboxValues": [
         {
-          "displayOn": "all products",
-          "productCheckboxValues": [
-            {
-              "text": "Required checkbox for all products",
-              "textColor": "#000"
-            },
-            {
-              "text": "Additional required checkbox for all products",
-              "textColor": "#000"
-            }
-          ]
-        },
-        {
-          "displayOn": "001",
-          "productCheckboxValues": [
-            {
-              "text": "Required checkbox for 001",
-              "textColor": "#000"
-            },
-            {
-              "text": "Additional required checkbox for 001",
-              "textColor": "#000"
-            }
-          ]
-        },
-        {
-          "displayOn": "002",
-          "productCheckboxValues": [
-            {
-              "text": "Required checkbox for 002",
-              "textColor": "#000"
-            }
-          ]
+          "text": "all products text",
+          "textColor": "#741416"
         }
-      ],
-      "params": {
-        "required": false,
-        "type": "json",
-        "label": "Terms and conditions to apply for specific product Id's or all products"
-      }
+      ]
     },
-    "termsDialog": {
-      "type": "admin",
-      "destination": "frontend",
-      "default": "You must agree with all terms and conditions of sale to check out.",
-      "params": {
-        "required": false,
-        "type": "string",
-        "label": "Terms and Conditions dialog notice"
-      }
-    }
-  }
+    {
+      "displayOn": "001",
+      "productCheckboxValues": [
+        {
+          "text": "001 text",
+          "textColor": "#741416"
+        }
+      ]
+    },
+    {
+      "displayOn": "002",
+      "productCheckboxValues": [
+        {
+          "text": "002 text",
+          "textColor": "#741416"
+        }
+      ]
+    },
+  ],
+  "termsDialog": "You must agree with all terms and conditions of sale to check out."
+}
 ```
  
 ### Useful Additional Values
