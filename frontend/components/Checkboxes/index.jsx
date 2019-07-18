@@ -33,6 +33,7 @@ class Checkboxes extends Component {
       getProducts,
       cartProductIds,
     } = this.props;
+
     this.updateCheckoutAllowed();
     getProducts(cartProductIds);
   }
@@ -46,6 +47,7 @@ class Checkboxes extends Component {
       this.updateCheckedValues();
       this.props.setCheckoutIsOrderable(false);
     }
+
     this.updateCheckoutAllowed();
   }
 
@@ -67,6 +69,7 @@ class Checkboxes extends Component {
     const updateCheckValues = [...this.state.checkValues];
     updateCheckValues[index].checkedValues[checkedIndex].checked =
       !this.state.checkValues[index].checkedValues[checkedIndex].checked;
+
     this.setState({ checkValues: updateCheckValues });
     this.updateCheckoutAllowed();
   }
@@ -76,6 +79,7 @@ class Checkboxes extends Component {
    */
   updateCheckoutAllowed = () => {
     let orderable = true;
+
     this.state.checkValues.forEach((element) => {
       const { checkedValues = [] } = element || {};
       const falseItem = checkedValues.find(value => value.checked === false);
@@ -83,6 +87,7 @@ class Checkboxes extends Component {
         orderable = false;
       }
     });
+
     this.props.setCheckoutIsOrderable(orderable);
   }
 
@@ -93,13 +98,16 @@ class Checkboxes extends Component {
     const {
       termsToDisplay,
     } = this.props;
+
     const {
       checkValues,
     } = this.state;
+
     const checkboxes = termsToDisplay.map((product, index) => {
       if (typeof checkValues[index] === 'undefined') {
         return null;
       }
+
       return (
         <CheckboxWrapper
           checkedValues={checkValues[index].checkedValues}
@@ -108,7 +116,9 @@ class Checkboxes extends Component {
           wrapperIndex={index}
           handleClick={this.handleClick}
         />);
-    }).filter(element => element !== null);
+    })
+      .filter(element => element !== null);
+
     return (
       <div className={styles.wrapper}>
         <div className={styles.content}>
