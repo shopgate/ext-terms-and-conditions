@@ -1,6 +1,6 @@
 {
   "name": "@shopgate/terms-and-conditions",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Frontend Extension which displays Terms and Conditions on the Cart Page",
   "license": "Apache-2.0",
   "scripts": {
@@ -10,13 +10,13 @@
     "coverage:watch": "npm run coverage -- --watch"
   },
   "devDependencies": {
-    "@shopgate/eslint-config": "^6.2.1",
-    "@shopgate/pwa-common": "^6.2.1",
-    "@shopgate/pwa-common-commerce": "^6.2.1",
-    "@shopgate/pwa-core": "^6.2.1",
-    "@shopgate/pwa-unit-test": "^6.2.1",
-    "@shopgate/pwa-ui-ios": "^6.2.1",
-    "@shopgate/pwa-ui-shared": "^6.2.1",
+    "@shopgate/eslint-config": "^6.5.4",
+    "@shopgate/pwa-common": "^6.5.4",
+    "@shopgate/pwa-common-commerce": "^6.5.4",
+    "@shopgate/pwa-core": "^6.5.4",
+    "@shopgate/pwa-unit-test": "^6.5.4",
+    "@shopgate/pwa-ui-ios": "^6.5.4",
+    "@shopgate/pwa-ui-shared": "^6.5.4",
     "babel-core": "^6.26.0",
     "babel-plugin-react-transform": "^3.0.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -30,10 +30,12 @@
     "glamor": "^2.20.40",
     "jest": "^22.4.2",
     "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "~16.8.4",
+    "react-dom": "~16.8.4",
     "react-helmet": "^5.2.0",
-    "react-transition-group": "^2.2.1"
+    "react-transition-group": "^2.2.1",
+    "react-hot-loader": "^3.1.3",
+    "react-transform-catch-errors": "^1.0.2"
   },
   "peerDependencies": {
     "@shopgate/pwa-common": "^6.2.1",

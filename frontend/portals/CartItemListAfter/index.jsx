@@ -4,7 +4,6 @@ import getConfig from '../../helpers/getConfig';
 
 export default () => {
   const config = getConfig();
-
   if (config.checkboxValues.length === 0) {
     return null;
   }
