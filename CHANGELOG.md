@@ -2,7 +2,11 @@
  All notable changes to this project will be documented in this file.
  The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-##[1.1.1] - 2019-07-17
+## [1.2.0] - 2019-07-26
+### Added
+-  support for array of product ids in displayOn config field
+
+## [1.1.1] - 2019-07-17
 ### Fixed
 -  checkout button state updating in checkbox component
 

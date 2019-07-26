@@ -60,8 +60,12 @@ export const getTermsToDisplay = createSelector(
     if (!productIds) {
       return null;
     }
-    return checkboxValues.filter((value =>
-      productIds.includes(value.displayOn) || value.displayOn === ALL_PRODUCTS));
+    return checkboxValues.filter((value) => {
+      if (Array.isArray(value.displayOn)) {
+        return !!productIds.find(id => value.displayOn.includes(id));
+      }
+      return productIds.includes(value.displayOn) || value.displayOn === ALL_PRODUCTS;
+    });
   }
 );
 
