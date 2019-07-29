@@ -16,7 +16,7 @@ Add the Terms and conditions extension to your Shopgate Connect deployment confi
 
 Set the following values in your Shopgate Connect Admin:
 * checkboxValues - (array of Objects) contains specific product terms and conditions information.
-    * displayOn - (string) triggering product Id or all proudcts (triggering string to list for all products)
+    * displayOn - (string|string[]) triggering product Id or all products or array of triggering product ids (triggering string to list for all products)
     * productCheckboxValues - (array of Objects) used to hold terms and conditions values for specific products.
         * text - (string) text for terms and conditions checkbox.
         * textColor - (string) hex value for text color of terms and conditions text.
@@ -51,6 +51,15 @@ If the value checkBoxValues is left empty, checkout will be allowed and no check
       "productCheckboxValues": [
         {
           "text": "002 text",
+          "textColor": "#741416"
+        }
+      ]
+    },
+    {
+      "displayOn": ["003", "004". "005"],
+      "productCheckboxValues": [
+        {
+          "text": "003 004 and 005 text",
           "textColor": "#741416"
         }
       ]
